@@ -86,9 +86,6 @@ class _UIAutomationElement(object):
 
         :rtype : unicode
         """
-        # validate that the element is a text element
-        if not "text" in self.IUIAutomationElement.CurrentClassName.lower():
-            return None
         IUnknown = self.IUIAutomationElement.GetCurrentPattern(UIAutomationClient.UIA_TextPatternId)
         IUIAutomationTextPattern = IUnknown.QueryInterface(UIAutomationClient.IUIAutomationTextPattern)
         return IUIAutomationTextPattern.DocumentRange.getText(-1)
